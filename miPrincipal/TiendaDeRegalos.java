@@ -8,14 +8,20 @@ public class TiendaDeRegalos{
     
 
     public TiendaDeRegalos(int capacidadInventario) {
-        this.inventario = new Inventario(capacidadInventario);
+        //como la relacion entre la clase TiendaDeRegalos y la clase Inventario es de 1 a 1
+        //es decir, una tienda de regalos solo tiene un inventario
+        //y un inventario solo pertenece a una tienda de regalos
+        //y ademas es una relación de composición,
+        //se inicializa el inventario en el constructor de la clase TiendaDeRegalos
+        //como la realización de este ejercicio es de manera individual,
+        //se inicializa el inventario con una capacidad que se recibe como parámetro
+        
+        
         
     }
 
     public TiendaDeRegalos(String nombre, String direccion, int capacidadInventario) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.inventario = new Inventario(capacidadInventario);
+       //coloca aquí el código para inicializar los atributos de la clase
     }
 
     public void presentarse() {
@@ -27,101 +33,47 @@ public class TiendaDeRegalos{
     }
 
     public void agregarLibro(Libro libro) {
-        inventario.agregarLibro(libro);
+        //invoca el metodo agregarLibro de la clase Inventario
         System.out.println("Libro agregado: " + libro);
 
     }
 
     public void eliminarLibro(String nombreLibro) {
         Libro libro = buscarLibro(nombreLibro);
-        if (libro != null) {
-            inventario.eliminarLibro(libro);
-            System.out.println("Libro eliminado: " + libro.toString()); 
-        } else {
-            System.out.println("Libro no encontrado: " + nombreLibro);
-        }
+        //invoca el metodo eliminarLibro de la clase Inventario
+        //imprime un mensaje indicando si el libro fue eliminado o no
+        //si el libro no fue encontrado, imprime un mensaje indicando que no se encontró el libro
+        
     }
 
     public void agregarCelular(String nombre, double precio, String marca, String modelo) {
         Celular celular = new Celular(nombre, precio, marca, modelo);
         
-        inventario.agregarCelular(celular);
+        //invoca el metodo agregarCelular de la clase Inventario
         System.out.println("Celular agregado: " + celular.toString());
     }
 
     public void eliminarCelular(String nombreCelular) {
-        Celular celular = buscarCelular(nombreCelular);
-        if (celular != null) {
-            inventario.eliminarCelular(celular);
-            System.out.println("Celular eliminado: " + celular.toString());
-        } else {
-            System.out.println("Celular no encontrado: " + nombreCelular);
-        }
+        //coloca el codigo para buscar el celular
+        //invoca el metodo eliminarCelular de la clase Inventario
+        //imprime un mensaje indicando si el celular fue eliminado o no
+        //si el celular no fue encontrado, imprime un mensaje indicando que no se encontró el celular
+
     }
 
     public void agregarTelevision(String nombre, double precio, String tamanio, String resolucion) {
         Television television = new Television(nombre, precio, tamanio, resolucion);
-        inventario.agregarTelevision(television);
+       
+        //invoca el metodo agregarTelevision de la clase Inventario
         System.out.println("Televisor agregado: " + television.toString());
     }
 
-    public void eliminarTelevision(String nombreTelevision) {
-        Television television = buscarTelevision(nombreTelevision);
-        if (television != null) {
-            inventario.eliminarTelevision(television);
-            System.out.println("Televisor eliminado: " + television.toString());
-        } else {
-            System.out.println("Televisor no encontrado: " + nombreTelevision);
-        }
-    }
+    
+    //coloca los métodos faltantes, según el diagrama de clases
+    //recuerda que debes invocar los métodos de la clase Inventario
+    //y mostrar mensajes en consola para indicar si se realizó la operación o no
+    //y si no se encontró el producto, mostrar un mensaje indicando que no se encontró el producto
 
-    public void agregarLicuadora(String nombre, double precio, int potencia, int capacidad) {
-        Licuadora licuadora = new Licuadora(nombre, precio, potencia, capacidad);
-        inventario.agregarLicuadora(licuadora);
-        System.out.println("Licuadora agregada: " + licuadora.toString());
-    }
-
-    public void eliminarLicuadora(String nombreLicuadora) {
-        Licuadora licuadora = buscarLicuadora(nombreLicuadora);
-        if (licuadora != null) {
-            inventario.eliminarLicuadora(licuadora);
-            System.out.println("Licuadora eliminada: " + licuadora);
-        } else {
-            System.out.println("Licuadora no encontrada: " + nombreLicuadora);
-        }
-    }
-
-    public void agregarTostadora(String nombre, double precio, int ranuras, String color) {
-        Tostadora tostadora = new Tostadora(nombre, precio, ranuras, color);
-        inventario.agregarTostadora(tostadora);
-        System.out.println("Tostadora agregada: " + tostadora);
-    }
-
-    public void eliminarTostadora(String nombreTostadora) {
-        Tostadora tostadora = buscarTostadora(nombreTostadora);
-        if (tostadora != null) {
-            inventario.eliminarTostadora(tostadora);
-            System.out.println("Tostadora eliminada: " + tostadora.toString());
-        } else {
-            System.out.println("Tostadora no encontrada: " + nombreTostadora);
-        }
-    }
-
-    public void agregarCalculadora(String nombre, double precio, String tipo) {
-        Calculadora calculadora = new Calculadora(nombre, precio, tipo);
-        inventario.agregarCalculadora(calculadora);
-        System.out.println("Calculadora agregada: " + calculadora);
-    }
-
-    public void eliminarCalculadora(String nombreCalculadora) {
-        Calculadora calculadora = buscarCalculadora(nombreCalculadora);
-        if (calculadora != null) {
-            inventario.eliminarCalculadora(calculadora);
-            System.out.println("Calculadora eliminada: " + calculadora.toString());
-        } else {
-            System.out.println("Calculadora no encontrada: " + nombreCalculadora);
-        }
-    }
 
     public Libro buscarLibro(String nombreLibro) {
         Libro[] libros = inventario.getLibros();
@@ -133,90 +85,33 @@ public class TiendaDeRegalos{
         return null; // Devuelve null si no se encuentra el producto
     }
 
-    public Celular buscarCelular(String nombreCelular) {
-        Celular[] celulares = inventario.getCelulares();
-        for (int i = 0; i < celulares.length; i++) {
-            if (celulares[i] != null && celulares[i].getNombre().equals(nombreCelular)) {
-                return celulares[i];
-            }
-        }
-        return null; // Devuelve null si no se encuentra el producto
-    }
-
-    public Television buscarTelevision(String nombreTelevision) {
-        Television[] televisiones = inventario.getTelevisiones();
-        for (int i = 0; i < televisiones.length; i++) {
-            if (televisiones[i] != null && televisiones[i].getNombre().equals(nombreTelevision)) {
-                return televisiones[i];
-            }
-        }
-        return null; // Devuelve null si no se encuentra el producto
-    }
-
-    public Licuadora buscarLicuadora(String nombreLicuadora) {
-        Licuadora[] licuadoras = inventario.getLicuadoras();
-        for (int i = 0; i < licuadoras.length; i++) {
-            if (licuadoras[i] != null && licuadoras[i].getNombre().equals(nombreLicuadora)) {
-                return licuadoras[i];
-            }
-        }
-        return null; // Devuelve null si no se encuentra el producto
-    }
-
-    public Tostadora buscarTostadora(String nombreTostadora) {
-        Tostadora[] tostadoras = inventario.getTostadoras();
-        for (int i = 0; i < tostadoras.length; i++) {
-            if (tostadoras[i] != null && tostadoras[i].getNombre().equals(nombreTostadora)) {
-                return tostadoras[i];
-            }
-        }
-        return null; // Devuelve null si no se encuentra el producto
-    }
-
-    public Calculadora buscarCalculadora(String nombreCalculadora) {
-        Calculadora[] calculadoras = inventario.getCalculadoras();
-        for (int i = 0; i < calculadoras.length; i++) {
-            if (calculadoras[i] != null && calculadoras[i].getNombre().equals(nombreCalculadora)) {
-                return calculadoras[i];
-            }
-        }
-        return null; // Devuelve null si no se encuentra el producto
-    }
-
-
-    public void listarProductos() {
-        inventario.mostrarInventario();
-                
-    }
+    
+    //coloca los métodos faltantes buscar, según el diagrama de clases
 
     public void venderLibro(String nombreLibro) {
+
         Libro libro = buscarLibro(nombreLibro);
-        if (libro != null) {
-            inventario.eliminarLibro(libro);
-            System.out.println("Libro vendido: " + nombreLibro);
-        } else {
-            System.out.println("Libro no encontrado: " + nombreLibro);
-        }
+        //invoca el metodo eliminarLibro de la clase Inventario
+        //eso hará que el libro sea eliminado del inventario
+        
     }
 
     public void actualizarPrecioLibro(String nombreLibro, double nuevoPrecio) {
         Libro libro = buscarLibro(nombreLibro);
-        if (libro!= null) {
-            libro.setPrecio(nuevoPrecio);
-            System.out.println("Precio actualizado para " + nombreLibro + ": $" + nuevoPrecio);
-        } else {
-            System.out.println("Libro no encontrado: " + nombreLibro);
-        }
+        //utiliza el setter de precio para actualizar el precio del libro
     }
+
+    //coloca los métodos faltantes, según el diagrama de clases para actualizar el precio de un producto
     public void aplicarDescuentoATodosLosProductos(double porcentaje) {
-        inventario.aplicarDescuentoATodos(porcentaje);
+        //invoca el metodo aplicarDescuentoATodos de la clase Inventario
+        //imprime un mensaje indicando el porcentaje de descuento aplicado
+
         System.out.println("Descuento aplicado a los productos permitidos: " + porcentaje + "%");
     }
 
     public double calcularValorTotalProductos() {
-        double valorTotal = inventario.calcularValorTotalProductos();
-        System.out.println("Valor total de los productos en inventario: $" + valorTotal);
-        return valorTotal;
+        //invoca el metodo calcularValorTotalProductos de la clase Inventario
+        //retorna el valor total de los productos
     }
     
     public void agregarLibro(String nombre, double precio, String titulo,String autor, int paginas) {
@@ -229,18 +124,18 @@ public class TiendaDeRegalos{
     }
 
     public void agregarCelular(Celular celular) {
-        inventario.agregarCelular(celular);
+        //invoca el metodo agregarCelular de la clase Inventario
         System.out.println("Celular agregado: " + celular.toString());
     }
 
     public void agregarTelevision(Television television) {
-        inventario.agregarTelevision(television);
+       //invoca el metodo agregarTelevision de la clase Inventario
         System.out.println("Television agregado: " + television.toString());
 
     }
 
     public void agregarLicuadora(Licuadora licuadora) {
-        inventario.agregarLicuadora(licuadora);
+       //a
         System.out.println("Licuadora agregada: " + licuadora.toString());
 
     }

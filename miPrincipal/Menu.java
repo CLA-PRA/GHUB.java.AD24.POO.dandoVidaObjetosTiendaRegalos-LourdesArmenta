@@ -92,59 +92,51 @@ public class Menu {
 
         switch (tipoProducto) {
             case 1:
-                System.out.print("Ingrese el titulo del libro: ");
-                String titulo= scanner.nextLine();
-                System.out.print("Ingrese el autor del libro: ");
-                String autor = scanner.nextLine();
-                System.out.print("Ingrese el número de páginas del libro: ");
-                int paginas = scanner.nextInt();
+                //coloque aqui el codigo para capturar las datos deun libro
+               
 
-                tiendaDeRegalos.agregarLibro(nombre, precio, titulo,autor, paginas);
+                //invoque al método agregarLibro de la tienda de regalos
+
+               
                 System.out.println("Libro agregado exitosamente.");
                 
                 break;
             case 2:
-                System.out.print("Ingrese la marca del celular: ");
-                String marca = scanner.nextLine();
-                System.out.print("Ingrese el modelo del celular: ");
-                String modelo = scanner.nextLine();
-                tiendaDeRegalos.agregarCelular(nombre, precio, marca, modelo);
+               //coloque aqui el codigo para capturar las datos deun celular
+
+                //invoque al método agregarCelular de la tienda de regalos
                 System.out.println("Celular agregado exitosamente.");
                 
                 break;
             case 3:
-                System.out.print("Ingrese el tamaño del televisor (en pulgadas): ");
-                String tamanio = scanner.nextLine();
-                //scanner.nextLine(); // Consumir la nueva línea
-                System.out.print("Ingrese la resolución del televisor: ");
-                String resolucion = scanner.nextLine();
-                tiendaDeRegalos.agregarTelevision(nombre, precio, tamanio, resolucion);
+                //coloque aqui el codigo para capturar las datos deun televisor
+
+                //invoque al método agregarTelevision de la tienda de regalos
+                
                 System.out.println("Televisor agregado exitosamente.");
                 break;
             case 4:
-                System.out.print("Ingrese la potencia de la licuadora (en vatios): ");
-                int potencia = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea
-                System.out.print("Ingrese la capacidad de la licuadora (en litros): ");
-                int capacidad = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea
-                tiendaDeRegalos.agregarLicuadora(nombre, precio, potencia, capacidad);
+                //invoque al método agregarLicuadora de la tienda de regalos
+                
+                //coloque aqui el codigo para capturar las datos de una licuadora
+                
                 System.out.println("Licuadora agregada exitosamente.");
                 
                 break;
             case 5:
-                System.out.print("Ingrese el número de ranuras de la tostadora: ");
-                int ranuras = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea
-                String material = scanner.nextLine();
-                tiendaDeRegalos.agregarTostadora(nombre, precio, ranuras, material);
+
+                //coloque aqui el codigo para capturar las datos de una tostadora
+
+              
+                //invoque al método agregarTostadora de la tienda de regalos
                 System.out.println("Tostadora agregada exitosamente.");
                
                 break;
             case 6:
-                System.out.print("Ingrese el tipo de calculadora (científica, básica, etc.): ");
-                String tipo = scanner.nextLine();
-                tiendaDeRegalos.agregarCalculadora(nombre, precio, tipo);
+                //coloque aqui el codigo para capturar las datos de una calculadora
+
+                //invoque al método agregarCalculadora de la tienda de regalos
+               
                 System.out.println("Calculadora agregada exitosamente.");
                
                 break;
@@ -178,19 +170,19 @@ public class Menu {
                 tiendaDeRegalos.eliminarLibro(nombre);
                 break;
             case 2:
-                tiendaDeRegalos.eliminarCelular(nombre);
+                //coloqie aqui el codigo para eliminar un celular
                 break;
             case 3:
-                tiendaDeRegalos.eliminarTelevision(nombre);
+                //coloqie aqui el codigo para eliminar un televisor
                 break;
             case 4:
-                tiendaDeRegalos.eliminarLicuadora(nombre);
+               //coloqie aqui el codigo para eliminar una licuadora
                 break;
             case 5:
-                tiendaDeRegalos.eliminarTostadora(nombre);
+                //coloqie aqui el codigo para eliminar una tostadora
                 break;
             case 6:
-                tiendaDeRegalos.eliminarCalculadora(nombre);
+                //coloqie aqui el codigo para eliminar una calculadora
                 break;
             default:    
                 System.out.println("Tipo de producto no válido.");
@@ -200,35 +192,28 @@ public class Menu {
     }
 
     private void listarProductos() {
-        tiendaDeRegalos.listarProductos();
+        //coloque aqui el codigo para listar los productos
+        
     }
 
     private void venderProducto(Scanner scanner) {
         System.out.print("Ingrese el nombre del producto a vender: ");
         String nombre = scanner.nextLine();
-        tiendaDeRegalos.venderLibro(nombre);
+        //coloque aqui el codigo para vender un producto
     }
 
     private void aplicarDescuento(Scanner scanner) {
-        System.out.print("Ingrese el porcentaje de descuento: ");
-        double porcentaje = scanner.nextDouble();
-        scanner.nextLine(); // Consumir la nueva línea
-        tiendaDeRegalos.aplicarDescuentoATodosLosProductos(porcentaje);
+        //coloque aqui el codigo para aplicar un descuento a todos los productos
+       
     }
 
     private void actualizarPrecio(Scanner scanner) {
-        System.out.print("Ingrese el nombre del producto a actualizar: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Ingrese el nuevo precio del producto: ");
-        double nuevoPrecio = scanner.nextDouble();
-        scanner.nextLine(); // Consumir la nueva línea
-        tiendaDeRegalos.actualizarPrecioLibro(nombre, nuevoPrecio);
+        //coloque aqui el codigo para actualizar el precio de un producto
 
       
     }
 
     private void calcularValorTotalProductos() {
-        double valorTotal = tiendaDeRegalos.calcularValorTotalProductos();
-        System.out.println("Valor total de los productos en inventario: $" + valorTotal);
+        //coloque aqui el codigo para calcular el valor total de los productos
     }
 }
